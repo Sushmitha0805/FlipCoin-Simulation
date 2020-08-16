@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 
 echo "flip coin simulation"
 IS_HEAD=1;
@@ -45,3 +45,24 @@ if [ $HEAD_CNT -gt $TAIL_CNT ]
    else
       echo " Tie "
    fi
+
+if [ $HEAD_CNT  -eq  $TAIL_CNT ]
+   then
+      while [ $valid ]
+      	RANDOM_CHECK=$((RANDOM%2))
+		do
+     		if [ $RANDOM_CHECK -eq $IS_HEAD ]
+         then
+         	HEAD_CNT=$(($HEAD_CNT+1))
+         else
+    			TAIL_CNT=$(($TAIL_CNT+1))
+         fi
+				HEAD_WINS=$(($HEAD_CNT-$TAIL_CNT))
+            TAIL_WINS=$(($TAIL_CNT-$HEAD_CNT))
+
+         if [[ $HEAD_CNT -eq 2 || $TAIL_CNT -eq 2 ]]
+         then
+         	break
+         fi
+		done
+	fi
