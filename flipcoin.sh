@@ -31,3 +31,17 @@ do
 done
       echo " Heads wins "$HEAD_CNT" times "
       echo " Tails wins "$TAIL_CNT" times "
+
+if [ $HEAD_CNT -gt $TAIL_CNT ]
+   then
+      HEAD_WINS=$(($HEAD_CNT-$TAIL_CNT))
+      echo " Heads wins Tails  by $HEAD_WINS times  "
+
+   elif [ $HEAD_CNT  -lt $TAIL_CNT ]
+   then
+      TAIL_WINS=$(($TAIL_CNT-$HEAD_CNT))
+      echo "Tails wins Heads by $TAIL_WINS times"
+
+   else
+      echo " Tie "
+   fi
